@@ -1,0 +1,495 @@
+/* --- Paleta de Cores Baseada no Logo "Encantos de Minas" --- */
+:root {
+    --primary-green: #2a573a; /* Verde escuro do fundo do logo */
+    --primary-gold: #b9955a;   /* Dourado/bronze do laço */
+    --primary-cream: #f5eecf;  /* Creme do texto do logo */
+    --dark-text: #333333;
+    --light-bg: #f9f9f7;      /* Um fundo quase branco, mais quente */
+    --white: #ffffff;
+}
+
+
+/* --- Estilos Gerais e Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- ATUALIZADO: Fundo Amadeirado Fixo --- */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--dark-text);
+    /* Removido background-color: var(--light-bg); */
+    
+    /* Adiciona o fundo de madeira */
+    background-image: url('wood-background.jpg'); /* <<--- COLOQUE O NOME DA SUA IMAGEM AQUI */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Efeito paralaxe! */
+}
+
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Cabeçalho --- */
+.header {
+    /* ATUALIZADO: Fundo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.25); /* Branco quase sólido */
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; 
+    width: auto;
+    vertical-align: middle;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-gold); 
+}
+
+/* --- Seção Inicial (Hero) - (Esta seção não muda, mantém a foto dos doces) --- */
+.hero {
+    position: relative; 
+    color: var(--white); 
+    text-align: center;
+    padding: 160px 20px 100px 20px;
+    margin-top: 70px; 
+    overflow: hidden;
+    background-image: url('hero-background.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.60); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; 
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: var(--white); 
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #f0f0f0; 
+}
+
+.cta-button {
+    background-color: var(--primary-gold); 
+    color: var(--white); 
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    background-color: #a0834e; 
+}
+
+.whatsapp-button i {
+    margin-right: 10px;
+}
+
+/* --- Seções Padrão --- */
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 50px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-green); 
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* --- Seção de Produtos --- */
+#produtos { 
+    /* ATUALIZADO: Fundo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.9); /* Branco 90% opaco */
+}
+
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    gap: 30px;
+    text-align: left;
+}
+
+.servico-item {
+    /* ATUALIZADO: Fundo sólido para destacar do fundo transparente da seção */
+    background-color: var(--white); 
+    padding: 30px;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servico-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.45);
+}
+
+.servico-item i {
+    font-size: 40px;
+    color: var(--primary-green); 
+    margin-bottom: 20px;
+}
+
+.servico-item h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* --- Seção Diferenciais --- */
+#diferenciais {
+    /* ATUALIZADO: Fundo semi-transparente */
+    background-color: rgba(249, 249, 247, 0.9); /* Off-white 90% opaco */
+}
+
+.diferenciais-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.diferencial-item {
+    max-width: 250px;
+}
+
+.diferencial-item i {
+    font-size: 48px;
+    color: var(--primary-green); 
+    margin-bottom: 15px;
+}
+
+.diferencial-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* --- SEÇÃO SOBRE NÓS --- */
+#sobre {
+    /* ATUALIZADO: Fundo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.9); /* Branco 90% opaco */
+}
+
+.sobre-content p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* --- Seção Depoimentos --- */
+#depoimentos {
+    /* ATUALIZADO: Fundo semi-transparente */
+    background-color: rgba(249, 249, 247, 0.9); /* Off-white 90% opaco */
+}
+
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.depoimento-card {
+    /* ATUALIZADO: Fundo sólido para destacar */
+    background-color: var(--white); 
+    padding: 30px;
+    border-left: 5px solid var(--primary-gold); 
+    text-align: left;
+    border-radius: 5px;
+}
+
+.depoimento-card .quote {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.depoimento-card .author {
+    font-weight: 700;
+}
+
+/* =========================== */
+/* = CSS DA NOVA SEÇÃO ADICIONADA = */
+/* =========================== */
+#redes-sociais {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco 90% opaco, como #sobre */
+}
+
+.redes-sociais-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Para quebrar em telas menores */
+    gap: 50px; /* Espaço entre os links */
+    margin-top: 20px;
+}
+
+.social-link {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: color 0.3s ease;
+}
+
+.social-link i {
+    font-size: 36px; /* Ícones um pouco maiores */
+    color: var(--primary-green); /* Cor principal da marca */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link span {
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--primary-gold); /* Muda cor do texto no hover */
+}
+
+.social-link:hover i {
+    color: var(--primary-gold); /* Muda cor do ícone no hover */
+    transform: scale(1.1); /* Efeito sutil de zoom */
+}
+/* =========================== */
+/* = FIM DO CSS DA NOVA SEÇÃO = */
+/* =========================== */
+
+
+/* --- Seção Contato --- */
+#contato {
+    /* Este já usa uma cor da marca, vamos mantê-lo sólido */
+    background-color: var(--primary-green); 
+    color: var(--white);
+}
+
+#contato .section-title::after {
+    background-color: var(--primary-gold); 
+}
+
+#contato p {
+    max-width: 600px;
+    margin: -20px auto 40px auto;
+}
+
+.contato-info {
+    margin-top: 60px; 
+}
+
+.contato-info p {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contato-info a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contato-info a:hover {
+    color: var(--primary-gold); 
+}
+
+.contato-info i {
+    color: var(--primary-gold); 
+    margin-right: 10px;
+    width: 20px;
+}
+
+.contato-info p:not(:has(a)) {
+    color: var(--white);
+    font-weight: 600;
+}
+
+
+/* --- Rodapé --- */
+.footer {
+    /* ATUALIZADO: Fundo semi-transparente */
+    background-color: rgba(34, 34, 34, 0.9); /* Preto 90% opaco */
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* --- Responsividade (Sem alterações, já está funcional) --- */
+
+@media (max-width: 992px) {
+    .section {
+        padding: 60px 0;
+    }
+    .hero h1 {
+        font-size: 42px;
+    }
+    .section-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        justify-content: center; 
+    }
+    .nav-menu {
+        display: none; 
+    }
+    .hero {
+        margin-top: 60px;
+        padding: 120px 20px 80px 20px;
+    }
+    .hero h1 {
+        font-size: 36px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+    .section-title {
+        font-size: 28px;
+    }
+    .logo img {
+        height: 40px;
+    }
+    .sobre-content p {
+        font-size: 16px;
+    }
+    .contato-info p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 576px) {
+    .section {
+        padding: 40px 0;
+    }
+    .hero h1 {
+        font-size: 28px;
+    }
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    .diferenciais-grid {
+        flex-direction: column; 
+        align-items: center;
+    }
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+    .contato-info p {
+        font-size: 16px;
+    }
+    .footer {
+        font-size: 14px;
+    }
+}
+
+
+/* --- Botão Flutuante do WhatsApp --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
