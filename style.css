@@ -244,6 +244,63 @@ h1, h2, h3 {
     margin-bottom: 10px;
 }
 
+/* --- Carrossel de Produtos --- */
+#product-carousel {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco 90% opaco */
+    padding: 60px 0;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 900px; /* Largura máxima do carrossel */
+    margin: 40px auto;
+    overflow: hidden; /* Esconde as imagens que estão fora da vista */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.carousel-slide {
+    display: flex; /* Faz as imagens ficarem lado a lado */
+    transition: transform 0.5s ease-in-out; /* Animação de transição */
+}
+
+.carousel-slide img {
+    width: 100%; /* Cada imagem ocupa 100% da largura do contêiner */
+    height: 500px; /* Altura fixa para todas as imagens */
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+    display: block; /* Remove espaço extra abaixo da imagem */
+    flex-shrink: 0; /* Impede que as imagens encolham */
+    border-radius: 10px; /* Adiciona borda arredondada às imagens */
+}
+
+/* Botões de navegação */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    z-index: 10; /* Garante que os botões fiquem acima das imagens */
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
 /* --- SEÇÃO SOBRE NÓS --- */
 #sobre {
     /* ATUALIZADO: Fundo semi-transparente */
@@ -288,9 +345,7 @@ h1, h2, h3 {
     font-weight: 700;
 }
 
-/* =========================== */
-/* = CSS DA NOVA SEÇÃO ADICIONADA = */
-/* =========================== */
+/* --- Seção Redes Sociais --- */
 #redes-sociais {
     background-color: rgba(255, 255, 255, 0.9); /* Fundo branco 90% opaco, como #sobre */
 }
@@ -334,9 +389,6 @@ h1, h2, h3 {
     color: var(--primary-gold); /* Muda cor do ícone no hover */
     transform: scale(1.1); /* Efeito sutil de zoom */
 }
-/* =========================== */
-/* = FIM DO CSS DA NOVA SEÇÃO = */
-/* =========================== */
 
 
 /* --- Seção Contato --- */
@@ -439,6 +491,15 @@ h1, h2, h3 {
     .contato-info p {
         font-size: 18px;
     }
+
+    /* Responsividade Carrossel */
+    .carousel-slide img {
+        height: 350px; /* Ajusta altura para telas menores */
+    }
+    .carousel-btn {
+        font-size: 20px;
+        padding: 10px 8px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -465,6 +526,15 @@ h1, h2, h3 {
     }
     .footer {
         font-size: 14px;
+    }
+
+    /* Responsividade Carrossel */
+    .carousel-slide img {
+        height: 250px; /* Mais ajuste para telas muito pequenas */
+    }
+    .carousel-btn {
+        font-size: 18px;
+        padding: 8px 6px;
     }
 }
 
