@@ -24,10 +24,9 @@ html {
 body {
     font-family: 'Open Sans', sans-serif;
     color: var(--dark-text);
-    /* Removido background-color: var(--light-bg); */
     
     /* Adiciona o fundo de madeira */
-    background-image: url('wood-background.jpg'); /* <<--- COLOQUE O NOME DA SUA IMAGEM AQUI */
+    background-image: url('wood-background.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -47,7 +46,6 @@ h1, h2, h3 {
 
 /* --- Cabeçalho --- */
 .header {
-    /* ATUALIZADO: Fundo semi-transparente */
     background-color: rgba(255, 255, 255, 0.25); /* Branco quase sólido */
     padding: 10px 0;
     position: fixed;
@@ -87,7 +85,7 @@ h1, h2, h3 {
     color: var(--primary-gold); 
 }
 
-/* --- Seção Inicial (Hero) - (Esta seção não muda, mantém a foto dos doces) --- */
+/* --- Seção Inicial (Hero) --- */
 .hero {
     position: relative; 
     color: var(--white); 
@@ -180,7 +178,6 @@ h1, h2, h3 {
 
 /* --- Seção de Produtos --- */
 #produtos { 
-    /* ATUALIZADO: Fundo semi-transparente */
     background-color: rgba(255, 255, 255, 0.9); /* Branco 90% opaco */
 }
 
@@ -193,7 +190,6 @@ h1, h2, h3 {
 }
 
 .servico-item {
-    /* ATUALIZADO: Fundo sólido para destacar do fundo transparente da seção */
     background-color: var(--white); 
     padding: 30px;
     border-radius: 8px;
@@ -218,7 +214,6 @@ h1, h2, h3 {
 
 /* --- Seção Diferenciais --- */
 #diferenciais {
-    /* ATUALIZADO: Fundo semi-transparente */
     background-color: rgba(249, 249, 247, 0.9); /* Off-white 90% opaco */
 }
 
@@ -244,69 +239,61 @@ h1, h2, h3 {
     margin-bottom: 10px;
 }
 
-/* --- Carrossel de Produtos --- */
+/* --- Carrossel de Produtos (Efeito Esteira Contínua) --- */
 #product-carousel {
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco 90% opaco */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 60px 0;
+    overflow: hidden; /* Garante que nada saia da tela */
 }
 
 .carousel-container {
-    position: relative;
-    max-width: 900px; /* Largura máxima do carrossel */
+    max-width: 100%; /* Ocupa a largura total para o efeito esteira */
     margin: 40px auto;
-    overflow: hidden; /* Esconde as imagens que estão fora da vista */
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: relative;
 }
 
 .carousel-slide {
-    display: flex; /* Faz as imagens ficarem lado a lado */
-    transition: transform 0.5s ease-in-out; /* Animação de transição */
+    display: flex;
+    gap: 20px; /* Espaço entre as imagens */
+    width: max-content; /* O container cresce o quanto for necessário */
+    
+    /* MUDANÇA AQUI: Alterado de 20s para 45s (mais lento) */
+    animation: scroll 150s linear infinite; 
+}
+
+/* Pausa a animação quando o mouse passa por cima */
+.carousel-slide:hover {
+    animation-play-state: paused;
 }
 
 .carousel-slide img {
-    width: 75%; /* Cada imagem ocupa 100% da largura do contêiner */
-    height: 450px; /* Altura fixa */
+    /* Define um tamanho fixo para criar o efeito de "fita" de produtos */
+    height: 350px; 
+    width: auto; /* A largura se ajusta proporcionalmente à altura */
+    max-width: 350px; /* Garante que não fiquem gigantes */
     
-    /* MUDANÇA AQUI: de 'cover' para 'contain' */
-    object-fit: contain; /* Garante que a imagem inteira apareça sem cortes/zoom */
+    object-fit: contain; /* Mantém a imagem inteira sem cortes (SEM ZOOM) */
     
-    display: block; 
+    border-radius: 10px;
+    background-color: #fff; /* Fundo branco caso a imagem seja png transparente */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
     flex-shrink: 0; 
-    border-radius: 10px; 
 }
 
-/* Botões de navegação */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
-    color: white;
-    border: none;
-    padding: 15px 10px;
-    cursor: pointer;
-    font-size: 24px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    z-index: 10; /* Garante que os botões fiquem acima das imagens */
-}
-
-.carousel-btn:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.carousel-btn.prev {
-    left: 10px;
-}
-
-.carousel-btn.next {
-    right: 10px;
+/* Definição da Animação */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Movemos -50% porque o Javascript vai duplicar as imagens. */
+        transform: translateX(-50%);
+    }
 }
 
 /* --- SEÇÃO SOBRE NÓS --- */
 #sobre {
-    /* ATUALIZADO: Fundo semi-transparente */
     background-color: rgba(255, 255, 255, 0.9); /* Branco 90% opaco */
 }
 
@@ -320,7 +307,6 @@ h1, h2, h3 {
 
 /* --- Seção Depoimentos --- */
 #depoimentos {
-    /* ATUALIZADO: Fundo semi-transparente */
     background-color: rgba(249, 249, 247, 0.9); /* Off-white 90% opaco */
 }
 
@@ -331,7 +317,6 @@ h1, h2, h3 {
 }
 
 .depoimento-card {
-    /* ATUALIZADO: Fundo sólido para destacar */
     background-color: var(--white); 
     padding: 30px;
     border-left: 5px solid var(--primary-gold); 
@@ -396,7 +381,6 @@ h1, h2, h3 {
 
 /* --- Seção Contato --- */
 #contato {
-    /* Este já usa uma cor da marca, vamos mantê-lo sólido */
     background-color: var(--primary-green); 
     color: var(--white);
 }
@@ -444,14 +428,13 @@ h1, h2, h3 {
 
 /* --- Rodapé --- */
 .footer {
-    /* ATUALIZADO: Fundo semi-transparente */
     background-color: rgba(34, 34, 34, 0.9); /* Preto 90% opaco */
     color: var(--white);
     text-align: center;
     padding: 20px 0;
 }
 
-/* --- Responsividade (Sem alterações, já está funcional) --- */
+/* --- Responsividade --- */
 
 @media (max-width: 992px) {
     .section {
@@ -497,11 +480,11 @@ h1, h2, h3 {
 
     /* Responsividade Carrossel */
     .carousel-slide img {
-        height: 350px; /* Ajusta altura para telas menores */
+        height: 250px; /* Ajusta altura para telas menores */
     }
-    .carousel-btn {
-        font-size: 20px;
-        padding: 10px 8px;
+    /* MUDANÇA AQUI: Alterado de 15s para 30s (mais lento no celular) */
+    .carousel-slide {
+        animation-duration: 30s; 
     }
 }
 
@@ -530,17 +513,7 @@ h1, h2, h3 {
     .footer {
         font-size: 14px;
     }
-
-    /* Responsividade Carrossel */
-    .carousel-slide img {
-        height: 250px; /* Mais ajuste para telas muito pequenas */
-    }
-    .carousel-btn {
-        font-size: 18px;
-        padding: 8px 6px;
-    }
 }
-
 
 /* --- Botão Flutuante do WhatsApp --- */
 .whatsapp-float {
